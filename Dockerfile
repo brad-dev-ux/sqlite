@@ -11,3 +11,6 @@ COPY init_db.sql .
 COPY seed_db.sql .
 
 ENTRYPOINT [ "./entrypoint.sh" ]
+# Assurer que /app existe et embarquer TA base dans l'image
+RUN mkdir -p /app
+COPY ./database.db /app/database.db
